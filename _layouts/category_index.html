@@ -8,6 +8,7 @@ layout: default
 		<h2><a href="{{ page.url | prepend: base_url | replace: "/index.html", "" }}{{ taxonomy }}/">{{ taxonomy }}</a></h2>
 	{% endfor %}
 {% else %}
+	<a href="/{{ site.category_dir | site.baseurl }}">&laquo; Back to category list</a>
 	{% assign catpages = site.categories[page.category] | sort: 'date' %}
 	{% for post in catpages %}
 	    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
