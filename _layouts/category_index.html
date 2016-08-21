@@ -2,7 +2,6 @@
 layout: default
 ---
 
-<h1 class="category">{{ page.title }} <a href="javascript:window.history.back();">&laquo;</a></h1>
 <ul class="posts">
 
 {% if page.category_root %}
@@ -11,6 +10,7 @@ layout: default
 		<h2><a href="{{ page.url | prepend: base_url | replace: "/index.html", "" | append: "/" | replace: "//", "/" }}{{ taxonomy }}/">{{ taxonomy }}</a></h2>
 	{% endfor %}
 {% else %}
+	<a href="/{{ site.category_dir | site.baseurl }}">&laquo; Back to category list</a>
 	{% assign catpages = site.categories[page.category] | sort: 'date' %}
 	{% for post in catpages %}
 	    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
